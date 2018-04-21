@@ -1,8 +1,15 @@
 <div class="card">
   <div class="camera">
-    <video id="box0" class="transit boxCommon thumbCommon easyrtcMirror  mx-auto" muted="muted" volume="0"></video>
-    <canvas id="canvas">
-    </canvas>
+    <div class="row">
+      <div class="col-6">
+        <img src="{{worker.video}}" class="img-fluid" alt="Camera Image">
+        <!-- <app-video-holder [idx]="worker.idx" [url]="worker.video"></app-video-holder> -->
+      </div>
+      <div class="col-6">
+        <app-radar-chart-demo></app-radar-chart-demo>
+      </div>
+    </div>
+
   </div>
   <div class="card-body">
     <div class="row">
@@ -15,10 +22,10 @@
     </div>
     <div class="row">
       <div class="col">
-        <p class="card-text">Distraction time average {{worker.distractionTime}} today</p>
+        <p class="card-text">Distraction time average {{worker.distractionTime}} minutes today</p>
       </div>
       <div class="col">
-        <p class="card-text">As leave and empty chair {{worker.emptyChairTime}} </p>
+        <p class="card-text">As leave and empty chair {{worker.emptyChairTime}} minutes today </p>
       </div>
     </div>
     <div class="row">
@@ -31,10 +38,12 @@
     </div>
     <div class="row">
       <div class="col">
-        <a (click)="punish()" class="btn btn-primary">Punish !</a>
+        <button class="btn btn-primary" (click)="punish()" type="submit">
+          Punish !</button>
       </div>
       <div class="col">
-        <a (click)="reward()" class="btn btn-primary">Reward</a>
+        <button class="btn btn-primary" (click)="reward()" type="submit">
+          Reward</button>
       </div>
     </div>
   </div>

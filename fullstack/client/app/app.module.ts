@@ -16,8 +16,11 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WorkerItemComponent } from './dashboard/worker-item/worker-item.component';
-import { VideoHolderComponent } from './video-holder/video-holder.component';
 import { IotService } from './services/iot.service.';
+import { HomeComponent } from './home/home.component';
+import { RadarChartDemoComponent } from './dashboard/radar-charts/radar-charts.component';
+import { VideoHolderComponent } from './video-holder/video-holder.component';
+import { ChartsModule } from 'ng2-charts';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -34,11 +37,13 @@ export function tokenGetter() {
     NotFoundComponent,
     DashboardComponent,
     WorkerItemComponent,
-    VideoHolderComponent,
-
+    HomeComponent,
+    RadarChartDemoComponent,
+    VideoHolderComponent
   ],
   imports: [
 
+    ChartsModule,
     RoutingModule,
     SharedModule,
     JwtModule.forRoot({

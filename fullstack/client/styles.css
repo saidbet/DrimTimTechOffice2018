@@ -8,3 +8,26 @@ body {
 .input-group {
   margin-bottom: 15px;
 }
+
+.bg-dark {
+  background-color: #86776e !important;
+}
+
+.btn {
+  color: #fff;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active {
+  color: #fff;
+  background-color: #86776e;
+  border-color: #86776e;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #86776e;
+  border-color: #86776e;
+}

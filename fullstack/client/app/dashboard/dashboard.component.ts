@@ -15,46 +15,35 @@ export class DashboardComponent implements OnInit {
 
   worker1: DashBoardItem = {
     _id: 'string',
-    name: 'Big boss',
-    arrivalTime: new Date(),
-    distractionTime: 15,
-    emptyChairTime: 25,
-    state: 'happy',
-  };
-  worker2: DashBoardItem = {
-    _id: 'string',
     name: 'Jean Claude Mimoun',
     arrivalTime: new Date(),
     distractionTime: 15,
     emptyChairTime: 25,
     state: 'happy',
+    video: 'http://camera.ehps.ncsu.edu:8100/c8',
+    idx: 'a'
   };
-  worker3: DashBoardItem = {
+  worker2: DashBoardItem = {
     _id: 'string',
     name: 'Britany Padberg',
     arrivalTime: new Date(),
     distractionTime: 15,
     emptyChairTime: 25,
     state: 'happy',
-  };
-  worker4: DashBoardItem = {
-    _id: 'string',
-    name: 'Kevin McKenzie',
-    arrivalTime: new Date(),
-    distractionTime: 15,
-    emptyChairTime: 25,
-    state: 'happy',
+    video: 'a',
+    idx: 'a'
   };
 
   isLoading = true;
   isEditing = false;
 
-  connectedUsers = [];
-
   constructor(
 
     public toast: ToastComponent) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.isLoading = false;
+  }
+
 
 }
