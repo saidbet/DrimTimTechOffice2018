@@ -6,7 +6,18 @@
         <!-- <app-video-holder [idx]="worker.idx" [url]="worker.video"></app-video-holder> -->
       </div>
       <div class="col-6">
-        <app-radar-chart-demo></app-radar-chart-demo>
+        <ngb-tabset>
+          <ngb-tab title="Happiness graph">
+            <ng-template ngbTabContent>
+              <app-radar-chart-demo></app-radar-chart-demo>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Happiness graph 2">
+            <ng-template ngbTabContent>
+              <line-chart-demo></line-chart-demo>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
       </div>
     </div>
 

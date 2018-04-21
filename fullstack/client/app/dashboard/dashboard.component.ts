@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   worker1: DashBoardItem = {
     _id: 'string',
-    name: 'Jean Claude Mimoun',
+    name: 'alex',
     arrivalTime: new Date(),
     distractionTime: 15,
     emptyChairTime: 25,
@@ -25,12 +25,12 @@ export class DashboardComponent implements OnInit {
   };
   worker2: DashBoardItem = {
     _id: 'string',
-    name: 'Britany Padberg',
+    name: 'christof',
     arrivalTime: new Date(),
     distractionTime: 15,
     emptyChairTime: 25,
     state: 'happy',
-    video: 'a',
+    video: 'http://localhost:8080/cam.mjpg',
     idx: 'a'
   };
 

@@ -21,6 +21,9 @@ import { HomeComponent } from './home/home.component';
 import { RadarChartDemoComponent } from './dashboard/radar-charts/radar-charts.component';
 import { VideoHolderComponent } from './video-holder/video-holder.component';
 import { ChartsModule } from 'ng2-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LineChartDemoComponent } from './dashboard/line-charts/line-charts.component';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -39,13 +42,15 @@ export function tokenGetter() {
     WorkerItemComponent,
     HomeComponent,
     RadarChartDemoComponent,
-    VideoHolderComponent
+    VideoHolderComponent,
+    LineChartDemoComponent
   ],
   imports: [
 
     ChartsModule,
     RoutingModule,
     SharedModule,
+    NgbModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

@@ -1,5 +1,9 @@
-<h1>Happiness graph</h1>
-<div style="display: block">
-  <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)"
-    (chartClick)="chartClicked($event)"></canvas>
+<div class="row">
+  <div class="col">
+    <pre>Happiness graph</pre>
+    <div style="display: block">
+      <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
 </div>

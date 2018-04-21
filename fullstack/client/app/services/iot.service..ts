@@ -9,7 +9,7 @@ export class IotService {
   constructor(private http: HttpClient) { }
 
   blameWorker(): Observable<any[]> {
-    return this.http.get<any[]>('http://10.100.3.48/on');
+    return this.http.get<any[]>('http://10.100.3.48/on/3');
   }
 
 }
