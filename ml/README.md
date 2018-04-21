@@ -1,5 +1,8 @@
 # python - 2 tools
  
+# list of emotions
+{0: 'angry', 1: 'disgust', 2: 'fear', 3: 'happy', 4: 'sad', 5: 'surprise', 6: 'neutral'}
+
 ## usage
 
 ```bash

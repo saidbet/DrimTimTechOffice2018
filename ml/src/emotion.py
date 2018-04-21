@@ -44,7 +44,7 @@ emotion_window = []
 cv2.namedWindow('window_frame')
 video_capture = cv2.VideoCapture(0)
 
-subject=Subject()
+subject = Subject()
 subject.start()
 
 while True:
@@ -104,7 +104,7 @@ while True:
 
     bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
     cv2.imshow('window_frame', bgr_image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):        
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 subject.stop()
