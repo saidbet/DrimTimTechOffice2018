@@ -563,17 +563,9 @@ function loginSuccess() {
     expandThumb(0);  // expand the mirror image initially.
 }
 
-
-function cancelText() {
-    document.getElementById('textentryBox').style.display = "none";
-    document.getElementById('textEntryButton').style.display = "block";
-}
-
-
 function sendText(e) {
-    document.getElementById('textentryBox').style.display = "none";
-    document.getElementById('textEntryButton').style.display = "block";
     var stringToSend = document.getElementById('textentryField').value;
+    document.getElementById('textentryField').value = "";
     if( stringToSend && stringToSend != "") {
         for(var i = 0; i < maxCALLERS; i++ ) {
             var easyrtcid = easyrtc.getIthCaller(i);
@@ -677,11 +669,9 @@ function appInit() {
     for(var i = 0; i < numVideoOBJS; i++) {
         prepVideoBox(i);
     }
-    setReshaper('killButton', killButtonReshaper);
-    setReshaper('muteButton', muteButtonReshaper);
+
     setReshaper('textentryBox', reshapeTextEntryBox);
     setReshaper('textentryField', reshapeTextEntryField);
-    setReshaper('textEntryButton', reshapeTextEntryButton);
 
     updateMuteImage(false);
     window.onresize = handleWindowResize;
@@ -696,10 +686,8 @@ function appInit() {
     });
     easyrtc.setOnCall( function(easyrtcid, slot) {
         console.log("getConnection count="  + easyrtc.getConnectionCount() );
-        if(activeBox == 0 ) { // first connection
-            collapseToThumb();
-            document.getElementById('textEntryButton').style.display = 'none';
-        }
+        boxUsed[slot+1] = true;
+        document.getElementById(getIdOfBox(slot+1)).style.visibility = "visible";
         handleWindowResize();
     });
 
@@ -711,12 +699,6 @@ function appInit() {
         }
         setTimeout(function() {
             document.getElementById(getIdOfBox(slot+1)).style.visibility = "hidden";
-
-            if( easyrtc.getConnectionCount() == 0 ) { // no more connections
-                expandThumb(0);
-                document.getElementById('textEntryButton').style.display = 'none';
-                document.getElementById('textentryBox').style.display = 'none';
-            }
             handleWindowResize();
         },20);
     });
