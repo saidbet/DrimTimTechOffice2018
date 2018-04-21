@@ -5,4 +5,6 @@ export class DashBoardItem {
   distractionTime: Number;
   emptyChairTime: Number;
   state: String;
+  video: String;
+  idx: String;
 }

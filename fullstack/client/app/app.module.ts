@@ -18,6 +18,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { WorkerItemComponent } from './dashboard/worker-item/worker-item.component';
 import { IotService } from './services/iot.service.';
 import { HomeComponent } from './home/home.component';
+import { RadarChartDemoComponent } from './dashboard/radar-charts/radar-charts.component';
+import { VideoHolderComponent } from './video-holder/video-holder.component';
+import { ChartsModule } from 'ng2-charts';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -34,10 +37,13 @@ export function tokenGetter() {
     NotFoundComponent,
     DashboardComponent,
     WorkerItemComponent,
-    HomeComponent
+    HomeComponent,
+    RadarChartDemoComponent,
+    VideoHolderComponent
   ],
   imports: [
 
+    ChartsModule,
     RoutingModule,
     SharedModule,
     JwtModule.forRoot({
