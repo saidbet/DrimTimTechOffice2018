@@ -1,9 +1,11 @@
 import numpy as np
 import time
 from apscheduler.scheduler import Scheduler
+import urllib.request
 
 CONST_TIME = 2
 CONST_TREESHOLD = 80
+CONST_BUZZ = "http://10.100.3.48/on/3"
 
 class Subject:
     def __init__(self):
@@ -23,7 +25,7 @@ class Subject:
             self.unload()
         
     def unload(self):
-        print("unload")
+        urllib.request.urlopen(CONST_BUZZ).read()
 
     def start(self):
         self.scheduler = Scheduler()
