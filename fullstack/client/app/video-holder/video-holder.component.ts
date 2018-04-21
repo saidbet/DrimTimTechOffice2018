@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
-import { easyrtc } from "easyrtc";
 
 @Component({
   selector: 'app-video-holder',
@@ -8,7 +7,7 @@ import { easyrtc } from "easyrtc";
 })
 export class VideoHolderComponent implements OnInit {
 
-  @ViewChild('videoHolder') videoHolder: ElementRef;
+  @ViewChild('videoHolder') videoHolder: HTMLVideoElement;
   @Input() stream: MediaStream;
 
   constructor() { }
