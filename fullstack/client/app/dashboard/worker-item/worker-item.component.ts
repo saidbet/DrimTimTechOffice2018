@@ -28,5 +28,4 @@ export class WorkerItemComponent implements OnInit {
     console.log(this.worker._id);
     // this._iot.rewardWorker();
   }
-
 }
