@@ -5,6 +5,6 @@ const workerSchema = new mongoose.Schema({
   lastName: String,
 });
 
-const Worker = mongoose.model('Worker', workerSchema);
+const MyWorker = mongoose.model('Worker', workerSchema);
 
-export default Worker;
+export default MyWorker;
