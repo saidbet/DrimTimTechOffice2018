@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
     public toast: ToastComponent) { }
 
   ngOnInit() {
+    this.isLoading = false;
   }
 
 
