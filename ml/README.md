@@ -13,14 +13,14 @@
 #  CONST_BUZZ = "http://10.100.3.48/on/3" -> web address to wake up collaboratpor
 #  MONGO_CONNECTION = "mongodb://localhost:27017" -> connection for db
 #  MONGO_DATABASE = "angularfullstack" -> database
-#  COLLABORATOR = "christof" -> name of the collaborator
 #  COLLECTION = "mood" -> collection
 
 #  2 cameras must be connected
 
 # launch analyser (must be launch from src directory)
 # camera 0 
-python3 emotion.py
+# subject represent the name of the collaborator
+python3 emotion.py -s <subject>
 
 # launch server (allow streaming to manager - must be launch from src directory)
 # expose port 8080
