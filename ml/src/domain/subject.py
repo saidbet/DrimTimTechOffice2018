@@ -8,7 +8,7 @@ from pymongo import MongoClient
 CONST_TIME = 2
 CONST_TREESHOLD = 80
 CONST_BUZZ = "http://10.100.3.48/on/3"
-MONGO_CONNECTION = "mongodb://localhost:27017"
+MONGO_CONNECTION = "mongodb://10.100.1.22:27017"
 MONGO_DATABASE = "angularfullstack"
 COLLABORATOR = "christof"
 COLLECTION = "mood"
@@ -19,6 +19,7 @@ class Subject:
         self.gender = 0
         self.mood = []
         self.scheduler = None
+        self.name = COLLABORATOR
 
     def evaluate(self):
         current = int(time.time())
@@ -57,7 +58,7 @@ class Subject:
         mongo = MongoClient(MONGO_CONNECTION)
         database = mongo[MONGO_DATABASE]
 
-        post = {"collaborator": COLLABORATOR,
+        post = {"collaborator": self.name,
                 "mood": mood,
                 "gender": gender,
                 "timestamp": timestamp}
