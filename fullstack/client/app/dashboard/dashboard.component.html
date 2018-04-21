@@ -1,19 +1,21 @@
 <app-loading [condition]="isLoading"></app-loading>
 
 <app-toast [message]="toast.message"></app-toast>
-<div class="row">
-  <div class="col-6">
-    <app-worker-item [worker]="worker1"></app-worker-item>
+<div class="jumbotron">
+  <div class="row pb-5">
+    <div class="col-6">
+      <app-worker-item [worker]="worker1"></app-worker-item>
+    </div>
+    <div class="col-6">
+      <app-worker-item [worker]="worker2"></app-worker-item>
+    </div>
   </div>
-  <div class="col-6">
-    <app-worker-item [worker]="worker2"></app-worker-item>
-  </div>
-</div>
-<div class="row">
-  <div class="col-6">
-    <app-worker-item [worker]="worker3"></app-worker-item>
-  </div>
-  <div class="col-6">
-    <app-worker-item [worker]="worker4"></app-worker-item>
+  <div class="row">
+    <div class="col-6">
+      <app-worker-item [worker]="worker3"></app-worker-item>
+    </div>
+    <div class="col-6">
+      <app-worker-item [worker]="worker4"></app-worker-item>
+    </div>
   </div>
 </div>

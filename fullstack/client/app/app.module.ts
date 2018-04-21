@@ -17,6 +17,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WorkerItemComponent } from './dashboard/worker-item/worker-item.component';
 import { IotService } from './services/iot.service.';
+import { HomeComponent } from './home/home.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -32,7 +33,8 @@ export function tokenGetter() {
     AdminComponent,
     NotFoundComponent,
     DashboardComponent,
-    WorkerItemComponent
+    WorkerItemComponent,
+    HomeComponent
   ],
   imports: [
 

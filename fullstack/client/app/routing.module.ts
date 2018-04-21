@@ -12,9 +12,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: AboutComponent },
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
