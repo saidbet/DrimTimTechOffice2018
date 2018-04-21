@@ -53,6 +53,13 @@ INTERFACE DES TASERS (GET) :
 ## usage
 
 ```bash
+# configuration
+# change in subject.py
+#  CONST_TIME = 2 -> period of analysis
+#  CONST_TREESHOLD = 80 -> wanted mean of happiness 
+#  CONST_BUZZ = "http://10.100.3.48/on/3" -> web address to wake up collaboratpor
+# 
+
 
 # launch analyser (must be launch from src directory)
 # camera 0 
