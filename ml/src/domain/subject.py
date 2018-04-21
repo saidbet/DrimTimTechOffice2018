@@ -18,7 +18,7 @@ class Subject:
         self.gender = 0
         self.mood = []
         self.scheduler = None
-        self.name = COLLABORATOR
+        self.name = "(no collaborator)"
 
     def evaluate(self):
         current = int(time.time())
