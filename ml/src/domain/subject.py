@@ -10,7 +10,6 @@ CONST_TREESHOLD = 80
 CONST_BUZZ = "http://10.100.3.48/on/3"
 MONGO_CONNECTION = "mongodb://10.100.1.22:27017"
 MONGO_DATABASE = "angularfullstack"
-COLLABORATOR = "christof"
 COLLECTION = "mood"
 
 
