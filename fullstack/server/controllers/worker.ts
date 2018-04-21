@@ -1,5 +1,5 @@
 import BaseCtrl from './base';
-
-export default class CatCtrl extends BaseCtrl {
+import Worker from '../models/worker';
+export default class WorkerCtrl extends BaseCtrl {
   model = Worker;
 }
