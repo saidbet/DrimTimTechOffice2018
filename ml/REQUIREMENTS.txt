@@ -6,4 +6,5 @@ h5py==2.7.0
 statistics
 opencv2-python==3.2.0
 apscheduler==2.1.2
+pymongo==3.6.1
 
