@@ -18,7 +18,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { WorkerItemComponent } from './dashboard/worker-item/worker-item.component';
 import { VideoHolderComponent } from './video-holder/video-holder.component';
 import { IotService } from './services/iot.service.';
-import { StreamRecorderComponent } from './stream-recorder/stream-recorder.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -36,7 +35,7 @@ export function tokenGetter() {
     DashboardComponent,
     WorkerItemComponent,
     VideoHolderComponent,
-    StreamRecorderComponent
+
   ],
   imports: [
 

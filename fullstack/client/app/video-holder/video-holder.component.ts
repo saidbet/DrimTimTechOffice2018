@@ -13,6 +13,5 @@ export class VideoHolderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    easyrtc.setVideoObjectSrc(this.videoHolder, this.stream);
   }
 }

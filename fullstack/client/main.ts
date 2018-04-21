@@ -1,4 +1,3 @@
-/// <reference path='../node_modules/easyrtc/typescript_support/d.ts.files/client/easyrtc.d.ts'"../../../typescript_support/d.ts.files/client/easyrtc.d.ts" />
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

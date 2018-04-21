@@ -55,40 +55,6 @@ export class DashboardComponent implements OnInit {
 
     public toast: ToastComponent) { }
 
-  ngOnInit() {
-    easyrtc.setSocketUrl("10.100.0.20:3000", {});
-    easyrtc.setRoomOccupantListener(this.callConnectedUser);
-
-    easyrtc.setOnStreamClosed(
-        (userId)=>
-        {
-            if(this.connectedUsers.includes(userId)){
-                document.getElementById(userId).remove();
-                this.connectedUsers = this.connectedUsers.filter(x=>x != userId);
-            }
-        });
-
-    easyrtc.setStreamAcceptor(
-        (caller, stream)=> 
-        {
-            let video = document.createElement("video");
-            video.setAttribute("id", caller);
-            document.body.appendChild(video);
-
-            easyrtc.setVideoObjectSrc(video, stream)
-        }
-    )
-    easyrtc.connect("test", (x)=>console.log(x), (x)=>console.log(x));
-  }
-
-  callConnectedUser(roomName, otherPeople){
-    for(let user in otherPeople){
-        if(this.connectedUsers.includes(user))
-            continue;
-
-        easyrtc.call(user, ()=>console.log("success"), ()=>console.log("fail"), ()=>console.log("."), []);
-        this.connectedUsers.push(user);
-    }
-}
+  ngOnInit() { }
 
 }
