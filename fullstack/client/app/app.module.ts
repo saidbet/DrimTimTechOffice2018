@@ -16,7 +16,9 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WorkerItemComponent } from './dashboard/worker-item/worker-item.component';
+import { VideoHolderComponent } from './video-holder/video-holder.component';
 import { IotService } from './services/iot.service.';
+import { StreamRecorderComponent } from './stream-recorder/stream-recorder.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -32,7 +34,9 @@ export function tokenGetter() {
     AdminComponent,
     NotFoundComponent,
     DashboardComponent,
-    WorkerItemComponent
+    WorkerItemComponent,
+    VideoHolderComponent,
+    StreamRecorderComponent
   ],
   imports: [
 
