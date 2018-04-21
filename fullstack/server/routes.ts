@@ -1,24 +1,23 @@
 import * as express from 'express';
 
-import CatCtrl from './controllers/cat';
 import UserCtrl from './controllers/user';
-import Cat from './models/cat';
-import User from './models/user';
+import WorkerCtrl from './controllers/worker';
+
 
 export default function setRoutes(app) {
 
   const router = express.Router();
 
-  const catCtrl = new CatCtrl();
+  const workerCtrl = new WorkerCtrl();
   const userCtrl = new UserCtrl();
 
-  // Cats
-  router.route('/cats').get(catCtrl.getAll);
-  router.route('/cats/count').get(catCtrl.count);
-  router.route('/cat').post(catCtrl.insert);
-  router.route('/cat/:id').get(catCtrl.get);
-  router.route('/cat/:id').put(catCtrl.update);
-  router.route('/cat/:id').delete(catCtrl.delete);
+  // Workers
+  router.route('/workers').get(workerCtrl.getAll);
+  router.route('/workers/count').get(workerCtrl.count);
+  router.route('/worker').post(workerCtrl.insert);
+  router.route('/worker/:id').get(workerCtrl.get);
+  router.route('/worker/:id').put(workerCtrl.update);
+  router.route('/worker/:id').delete(workerCtrl.delete);
 
   // Users
   router.route('/login').post(userCtrl.login);
@@ -29,7 +28,7 @@ export default function setRoutes(app) {
   router.route('/user/:id').put(userCtrl.update);
   router.route('/user/:id').delete(userCtrl.delete);
 
-  // Apply the routes to our application with the prefix /api
+  // Apply the routes to our appliworkerion with the prefix /api
   app.use('/api', router);
 
 }
