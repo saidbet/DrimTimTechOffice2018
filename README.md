@@ -46,3 +46,21 @@ Key
 
 INTERFACE DES TASERS (GET) :
 	http://10.100.3.48/on
+
+
+# python - 2 tools
+ 
+## usage
+
+```bash
+
+# launch analyser (must be launch from src directory)
+# camera 0 
+python3 emotion.py
+
+# launch server (allow streaming to manager - must be launch from src directory)
+# expose port 8080
+# camera 1 
+python3 server.py 
+
+```
