@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
 })
 export class RadarChartDemoComponent {
   // Radar
-  public radarChartLabels: string[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
-
+  public radarChartLabels: Array<any> = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral'];
   public radarChartData: any = [
     { data: [65, 59, 90, 81, 56, 55, 40], label: 'Today' },
     { data: [65, 59, 90, 81, 56, 55, 40], label: 'Last week' },
