@@ -87,5 +87,6 @@ function callEverybodyElse(roomName, otherPeople) {
 
 easyrtc.setRoomOccupantListener(callEverybodyElse);
 
+
 //Callback when message is received
 easyrtc.setPeerListener(messageListener);
