@@ -24,6 +24,7 @@ class CamHandler(BaseHTTPRequestHandler):
                 'Content-type', 'multipart/x-mixed-replace; boundary=--jpgboundary')
             self.end_headers()
 
+            print("before loop")
             while True:
                 try:
                     rc, img = capture.read()
@@ -61,7 +62,7 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 
 def main():
     global capture
-    capture = cv2.VideoCapture(0)
+    capture = cv2.VideoCapture(1)
     #capture.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 320);
     #capture.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 240);
     # capture.set(cv2.cv.CV_CAP_PROP_SATURATION,0.2);
