@@ -1,0 +1,28 @@
+version: '3'
+services:
+  # --- DATABASE ---
+  # Mongo
+    mongo:
+      container_name: "mic-mongo"
+      image: mongo:latest
+      hostname: mongodb
+      volumes:
+        - mongo:/data
+      ports:
+        - 27017:27017
+
+  # Mongo UI admin
+    mongo_ui:
+      container_name: "mic-mongo-ui"
+      image: mongoclient/mongoclient:latest
+      hostname: mongoclient
+      depends_on:
+        - mongo
+      volumes:
+        - mongo_ui:/data
+      ports:
+        - 3300:3000
+
+volumes:
+  mongo: {}
+  mongo_ui: {}
