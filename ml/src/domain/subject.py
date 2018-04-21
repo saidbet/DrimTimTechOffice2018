@@ -63,7 +63,7 @@ class Subject:
                 "gender": gender,
                 "timestamp": timestamp}
 
-        database[COLLECTION].insert_one(post).inserted_id
+        database[COLLECTION].insert_one(post)
 
     def addMood(self, mood, gender):
         timestamp = int(time.time())
