@@ -8,48 +8,16 @@ easyrtc.setStreamAcceptor(function(caller, stream) {
     return;
 });
 
-function postGetUserMedia() {
-    function connectError(errorCode, errorText) {
-        if (gotConnectionCallback) {
-            gotConnectionCallback(false, errorText);
-        }
-        else if (onFailure) {
-            onFailure(easyrtc.errCodes.CONNECT_ERR, errorText);
-        }
-        else {
-            easyrtc.showError(easyrtc.errCodes.CONNECT_ERR, errorText);
-        }
-    }
 
-    easyrtc.connect(applicationName, connectSuccess, connectError);
-}
 
 //assigns stream to video (dom) element
 function showVideo(stream) {
     easyrtc.setVideoObjectSrc(video, stream);
 }
 
-var stream = easyrtc.getLocalStream(null);
-if (stream) {
-    postGetUserMedia();
-}
-else {
-    easyrtc.initMediaSource(
-            postGetUserMedia,
-            function(errorCode, errorText) {
-                if (gotMediaCallback) {
-                    gotMediaCallback(false, errorText);
-                }
-                else if (onFailure) {
-                    onFailure(easyrtc.errCodes.MEDIA_ERR, errorText);
-                }
-                else {
-                    easyrtc.showError(easyrtc.errCodes.MEDIA_ERR, errorText);
-                }
-            },
-            null // default stream
-        );
-}
+
+
+easyrtc.setRoomOccupantListener(this.callEverybodyElse);
 
 function callEverybodyElse(roomName, otherPeople) {
 
@@ -67,25 +35,22 @@ function callEverybodyElse(roomName, otherPeople) {
     function establishConnection(position) {
         function callSuccess() {
             connectCount++;
-            if( connectCount < maxCALLERS && position > 0) {
+            if(position > 0) {
                 establishConnection(position-1);
             }
         }
         function callFailure(errorCode, errorText) {
             easyrtc.showError(errorCode, errorText);
-            if( connectCount < maxCALLERS && position > 0) {
+            if( position > 0) {
                 establishConnection(position-1);
             }
         }
-        easyrtc.call(list[position], callSuccess, callFailure);
+        easyrtc.call(list[position], callSuccess, callFailure, ()=> console.log("wasAccepted"), []);
 
     }
     if( list.length > 0) {
         establishConnection(list.length-1);
     }
-}
-
-easyrtc.setRoomOccupantListener(callEverybodyElse);
 
 
 //Callback when message is received

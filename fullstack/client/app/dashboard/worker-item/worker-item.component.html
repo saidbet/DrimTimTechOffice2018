@@ -7,23 +7,23 @@
   <div class="card-body">
     <div class="row">
       <div class="col">
-        <h5 class="card-title">Leanne Graham</h5>
+        <h5 class="card-title">{{worker.name}}</h5>
       </div>
       <div class="col">
-        <p class="card-text">Arrival at 09:00 </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p class="card-text">Distraction time average 00:15</p>
-      </div>
-      <div class="col">
-        <p class="card-text">As leave and empty chair time : 00:30</p>
+        <p class="card-text">Arrival at {{worker.arrivalTime}} </p>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <img src="images/svg/depression.svg" width="30" height="30" alt="">
+        <p class="card-text">Distraction time average {{worker.distractionTime}} today</p>
+      </div>
+      <div class="col">
+        <p class="card-text">As leave and empty chair {{worker.emptyChairTime}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="images/svg/{{worker.state}}.svg" width="30" height="30" alt="">
       </div>
       <div class="col">
 
@@ -31,10 +31,10 @@
     </div>
     <div class="row">
       <div class="col">
-        <a onclick="takepicture()" class="btn btn-primary">Punish !</a>
+        <a (click)="punish()" class="btn btn-primary">Punish !</a>
       </div>
       <div class="col">
-        <a href="#" class="btn btn-primary">Reward</a>
+        <a (click)="reward()" class="btn btn-primary">Reward</a>
       </div>
     </div>
   </div>
