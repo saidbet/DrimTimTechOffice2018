@@ -23,6 +23,8 @@ import { VideoHolderComponent } from './video-holder/video-holder.component';
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LineChartDemoComponent } from './dashboard/line-charts/line-charts.component';
+import { MoodVectorService } from './services/mood-vector.service';
+import { MoodService } from './services/mood.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -62,8 +64,9 @@ export function tokenGetter() {
     AuthGuardLogin,
     AuthGuardAdmin,
     UserService,
-    IotService
-
+    IotService,
+    MoodService,
+    MoodVectorService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

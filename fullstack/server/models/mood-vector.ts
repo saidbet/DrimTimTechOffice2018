@@ -13,6 +13,6 @@ const moodVectorSchema = new mongoose.Schema({
   neutral: Number
 }, { collection: 'mood_vector' });
 
-const MoodVector = mongoose.model('MoodSchema', moodVectorSchema);
+const MoodVector = mongoose.model('MoodVectorSchema', moodVectorSchema);
 
 export default MoodVector;

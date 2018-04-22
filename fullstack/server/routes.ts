@@ -2,6 +2,7 @@ import * as express from 'express';
 
 import UserCtrl from './controllers/user';
 import MoodCtrl from './controllers/mood';
+import MoodVectorCtrl from './controllers/mood-vector';
 
 
 export default function setRoutes(app) {
@@ -9,11 +10,16 @@ export default function setRoutes(app) {
   const router = express.Router();
 
   const moodCtrl = new MoodCtrl();
+  const moodVectorCtrl = new MoodVectorCtrl();
   const userCtrl = new UserCtrl();
 
   // Moods
   router.route('/moods').get(moodCtrl.getAll);
   router.route('/moods/:id').get(moodCtrl.getAll);
+
+  // Moods Vector
+  router.route('/moodsvector').get(moodVectorCtrl.getAll);
+  router.route('/moodsvector/:id').get(moodVectorCtrl.getAll);
 
   // Users
   router.route('/login').post(userCtrl.login);
