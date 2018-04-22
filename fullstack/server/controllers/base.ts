@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 abstract class BaseCtrl {
 
   abstract model: any;
@@ -8,6 +9,58 @@ abstract class BaseCtrl {
       if (err) { return console.error(err); }
       res.status(200).json(docs);
     });
+  }
+
+  // Get all for one collaborator
+  getAllForOneCollaborator = (req, res) => {
+    this.model.find({ collaborator: req.params.collaborator }, req.body, (err, data) => {
+      if (err) { return console.error(err); }
+      res.status(200).json(data);
+    });
+  }
+
+  getAllForOneCollaboratorHour = (req, res) => {
+    const weekAgo = moment().subtract(1, 'hour').format('X');
+    this.model.find({ collaborator: req.params.collaborator, timestamp: { $gte: weekAgo } }).
+      limit(500).
+      sort({ timestamp: -1 }).
+      exec(req.body, (err, data) => {
+        if (err) { return console.error(err); }
+        res.status(200).json(data);
+      });
+  }
+
+  getAllForOneCollaboratorWeek = (req, res) => {
+    const weekAgo = moment().subtract(7, 'days').format('X');
+    this.model.find({ collaborator: req.params.collaborator, timestamp: { $gte: weekAgo } }).
+      limit(500).
+      sort({ timestamp: -1 }).
+      exec(req.body, (err, data) => {
+        if (err) { return console.error(err); }
+        res.status(200).json(data);
+      });
+  }
+
+  getAllForOneCollaboratorMonth = (req, res) => {
+    const weekAgo = moment().subtract(1, 'month').format('X');
+    this.model.find({ collaborator: req.params.collaborator, timestamp: { $gte: weekAgo } }).
+      limit(500).
+      sort({ timestamp: -1 }).
+      exec(req.body, (err, data) => {
+        if (err) { return console.error(err); }
+        res.status(200).json(data);
+      });
+  }
+
+  getAllForOneCollaboratorYear = (req, res) => {
+    const weekAgo = moment().subtract(1, 'year').format('X');
+    this.model.find({ collaborator: req.params.collaborator, timestamp: { $gte: weekAgo } }).
+      limit(500).
+      sort({ timestamp: -1 }).
+      exec(req.body, (err, data) => {
+        if (err) { return console.error(err); }
+        res.status(200).json(data);
+      });
   }
 
   // Count all

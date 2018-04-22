@@ -38,6 +38,23 @@ export class DashboardComponent implements OnInit {
   isLoading = true;
   isEditing = false;
 
+  public mainChart = {
+    lineChartLabels: [],
+    lineChartData: [
+      { data: [], label: 'Alex Happiness' },
+      { data: [], label: 'Christof Happiness' }
+
+    ]
+  };
+  public temperatureChart = {
+    lineChartLabels: [],
+    lineChartData: [
+      { data: [], label: 'Temperature' },
+      { data: [], label: 'Hydro' },
+    ]
+  };
+
+
   constructor(
     private _moodService: MoodService,
     private _moodVectorService: MoodVectorService,
@@ -45,6 +62,25 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = false;
+    this.generateDay();
+  }
+
+  private generateDay() {
+
+    for (let index = 1; index < 22; index++) {
+      this.mainChart.lineChartLabels[index] = index + '/04/2018';
+      this.mainChart.lineChartData[0].data.push(this.generateRandom(16, 32, 2));
+      this.mainChart.lineChartData[1].data.push(this.generateRandom(0, 100, 2));
+      //this.mainChart.lineChartData[2].data.push(this.generateRandom(0, 100, 2));
+      //this.mainChart.lineChartData[2].data.push(this.generateRandom(0, 100, 2));
+    }
+  }
+
+
+  private generateRandom(min, max, decimalPlaces) {
+    const rand = Math.random() * (max - min) + min;
+    const power = Math.pow(10, decimalPlaces);
+    return Math.floor(rand * power) / power;
   }
 
 

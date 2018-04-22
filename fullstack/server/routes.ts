@@ -15,11 +15,19 @@ export default function setRoutes(app) {
 
   // Moods
   router.route('/moods').get(moodCtrl.getAll);
-  router.route('/moods/:id').get(moodCtrl.getAll);
+  router.route('/moods/:collaborator').get(moodCtrl.getAllForOneCollaborator);
+  router.route('/moods/:collaborator/hour').get(moodCtrl.getAllForOneCollaboratorHour);
+  router.route('/moods/:collaborator/week').get(moodCtrl.getAllForOneCollaboratorWeek);
+  router.route('/moods/:collaborator/month').get(moodCtrl.getAllForOneCollaboratorMonth);
+  router.route('/moods/:collaborator/year').get(moodCtrl.getAllForOneCollaboratorYear);
 
   // Moods Vector
   router.route('/moodsvector').get(moodVectorCtrl.getAll);
-  router.route('/moodsvector/:id').get(moodVectorCtrl.getAll);
+  router.route('/moodsvector/:collaborator').get(moodVectorCtrl.getAllForOneCollaborator);
+  router.route('/moodsvector/:collaborator/hour').get(moodVectorCtrl.getAllForOneCollaboratorHour);
+  router.route('/moodsvector/:collaborator/week').get(moodVectorCtrl.getAllForOneCollaboratorWeek);
+  router.route('/moodsvector/:collaborator/month').get(moodVectorCtrl.getAllForOneCollaboratorWeek);
+  router.route('/moodsvector/:collaborator/year').get(moodVectorCtrl.getAllForOneCollaborator);
 
   // Users
   router.route('/login').post(userCtrl.login);
