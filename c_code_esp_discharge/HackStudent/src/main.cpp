@@ -1,11 +1,11 @@
 #include "main.h"
 
 void setup() {
-    serial_init();
+  serial_init();
 	wifi_init();
 	ntp_init();
-    powerpin_init();
-    print_info();
+  powerpin_init();
+  print_info();
 }
 
 void loop() {
@@ -37,8 +37,10 @@ void loop() {
           client.println();
           client.println("<!DOCTYPE HTML><html><head>");
           client.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head>");
-          client.println("<h1>BUZZ SOMEONE</h1>");
-          client.println("<p><a href=\"on\"><button>BUZZ</button></a></p>");
+          client.println("<h1  style=\"font-family : \'Courier New\'\">BUZZ SOMEONE</h1>");
+          client.println("<p><a href=\"/on/1\"><button style=\"font-family : \'Courier New\'\">SIMPLE</button></a></p>");
+          client.println("<p><a href=\"/on/2\"><button style=\"font-family : \'Courier New\'\">DOUBLE</button></a></p>");
+          client.println("<p><a href=\"/on/3\"><button style=\"font-family : \'Courier New\'\">TRIPLE</button></a></p>");
           client.println("</html>");
           break;
         }
@@ -46,10 +48,18 @@ void loop() {
         {
           // you're starting a new line
           currentLineIsBlank = true;
-          if (strstr(linebuf,"GET /on") > 0)
+          if (strstr(linebuf,"GET /on/1") > 0)
           {
             Serial.println("LED ON");
-            buzz();
+            buzz(1);
+          } else if (strstr(linebuf,"GET /on/2") > 0)
+          {
+            Serial.println("LED ON");
+            buzz(2);
+          } else if (strstr(linebuf,"GET /on/3") > 0)
+          {
+            Serial.println("LED ON");
+            buzz(3);
           }
  
           // you're starting a new line
@@ -135,11 +145,14 @@ void print_info() {
 	Serial.println();
 }
 
-void buzz() {
-    for (uint8_t i = 0; i < 3; i++) {
+void buzz(int replay) {
+  if (replay <= 3)
+  {
+    for (uint8_t i = 0; i < replay; i++) {
         digitalWrite(POWERPIN, HIGH);
-        delay(1);
+        delay(SHOCK_MILLIS);
         digitalWrite(POWERPIN, LOW);
-        delay(100);
+        delay(200);
     }
+  }
 }
