@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+
 
 @Component({
   selector: 'line-chart-demo',
@@ -6,12 +8,12 @@ import { Component } from '@angular/core';
 })
 export class LineChartDemoComponent {
   // lineChart
-  public lineChartData: Array<any> = [
+  @Input() lineChartLabels: Array<any> = ['1', '2', '3', '4', '5', '6', '7'];
+
+  @Input() lineChartData: Array<any> = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' }
   ];
 
-  public lineChartLabels: Array<any> = ['1', '2', '3', '4', '5', '6', 'èl'];
-  /* public lineChartLabels: Array<any> = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']; */
   public lineChartOptions: any = {
     responsive: true,
     fill: true

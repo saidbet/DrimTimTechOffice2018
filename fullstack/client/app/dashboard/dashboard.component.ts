@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { CatService } from '../services/cat.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { DashBoardItem } from '../shared/models/dashboard-item.model';
+import { MoodService } from '../services/mood.service';
+import { MoodVectorService } from '../services/mood-vector.service';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class DashboardComponent implements OnInit {
   isEditing = false;
 
   constructor(
-
+    private _moodService: MoodService,
+    private _moodVectorService: MoodVectorService,
     public toast: ToastComponent) { }
 
   ngOnInit() {
