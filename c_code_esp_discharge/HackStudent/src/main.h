@@ -8,6 +8,7 @@
 
 #include "keys.h"
 
+#define SHOCK_MILLIS 10
 #define POWERPIN 12
 
 WiFiServer server(80);
@@ -20,11 +21,10 @@ void wifi_init();
 void ntp_init();
 void powerpin_init();
 void print_info();
-void buzz();
+void buzz(int replay);
 
 // Client variables 
 char linebuf[80];
 int charcount = 0;
-const int led = 12;
 
 #endif
