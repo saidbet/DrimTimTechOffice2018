@@ -46,7 +46,6 @@ export function tokenGetter() {
     LineChartDemoComponent
   ],
   imports: [
-
     ChartsModule,
     RoutingModule,
     SharedModule,

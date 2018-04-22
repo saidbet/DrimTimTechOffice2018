@@ -1,8 +1,10 @@
 import * as mongoose from 'mongoose';
 
 const moodSchema = new mongoose.Schema({
-  timeStamp: Date,
-  image: String
+  collaborator: String,
+  mood: String,
+  gender: String,
+  timestamp: Number
 }, { collection: 'mood' });
 
 const Mood = mongoose.model('MoodSchema', moodSchema);
