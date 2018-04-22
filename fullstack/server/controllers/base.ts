@@ -19,6 +19,18 @@ abstract class BaseCtrl {
     });
   }
 
+  getLatestForOneCollaborator = (req, res) => {
+    const weekAgo = moment().subtract(1, 'hour').format('X');
+    this.model.find({ collaborator: req.params.collaborator, timestamp: { $gte: weekAgo } }).
+      limit(1).
+      sort({ timestamp: -1 }).
+      exec(req.body, (err, data) => {
+        if (err) { return console.error(err); }
+        res.status(200).json(data);
+      });
+  }
+
+
   getAllForOneCollaboratorHour = (req, res) => {
     const weekAgo = moment().subtract(1, 'hour').format('X');
     this.model.find({ collaborator: req.params.collaborator, timestamp: { $gte: weekAgo } }).

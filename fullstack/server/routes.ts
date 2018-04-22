@@ -24,6 +24,7 @@ export default function setRoutes(app) {
   // Moods Vector
   router.route('/moodsvector').get(moodVectorCtrl.getAll);
   router.route('/moodsvector/:collaborator').get(moodVectorCtrl.getAllForOneCollaborator);
+  router.route('/moodsvector/:collaborator/latest').get(moodVectorCtrl.getLatestForOneCollaborator);
   router.route('/moodsvector/:collaborator/hour').get(moodVectorCtrl.getAllForOneCollaboratorHour);
   router.route('/moodsvector/:collaborator/week').get(moodVectorCtrl.getAllForOneCollaboratorWeek);
   router.route('/moodsvector/:collaborator/month').get(moodVectorCtrl.getAllForOneCollaboratorWeek);

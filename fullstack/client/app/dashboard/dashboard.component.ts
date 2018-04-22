@@ -69,10 +69,11 @@ export class DashboardComponent implements OnInit {
 
     for (let index = 1; index < 22; index++) {
       this.mainChart.lineChartLabels[index] = index + '/04/2018';
-      this.mainChart.lineChartData[0].data.push(this.generateRandom(16, 32, 2));
-      this.mainChart.lineChartData[1].data.push(this.generateRandom(0, 100, 2));
-      //this.mainChart.lineChartData[2].data.push(this.generateRandom(0, 100, 2));
-      //this.mainChart.lineChartData[2].data.push(this.generateRandom(0, 100, 2));
+      this.temperatureChart.lineChartLabels[index] = index + '/04/2018';
+      this.mainChart.lineChartData[0].data.push(this.generateRandom(50, 100, 2));
+      this.mainChart.lineChartData[1].data.push(this.generateRandom(50, 100, 2));
+      this.temperatureChart.lineChartData[0].data.push(this.generateRandom(16, 32, 2));
+      this.temperatureChart.lineChartData[1].data.push(this.generateRandom(0, 50, 2));
     }
   }
 
